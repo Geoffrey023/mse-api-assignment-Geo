@@ -1,1 +1,6 @@
 tabula_py
+camelot-py[cv]
+pdfplumber
+pandas
+numpy
+pathlib
