@@ -69,7 +69,7 @@ def get_company_details(ticker:str):
     company_details=df1.to_dict(orient='records')
 
     #get counter records from daily prices
-    df2=pd.read_sql("SELECT * FROM daily_prices", con=engine)
+    df2=pd.read_sql("SELECT * FROM prices", con=engine)
     df2=df2[df2['counter_id']==id]
     records=len(df2)
     return {'Company details':company_details,'Total records':records}
@@ -88,7 +88,7 @@ def get_daily_prices(
     id=df1['counter_id'].values[0]
     
     #filter ticker using counter id
-    df=pd.read_sql("SELECT * FROM daily_prices", con=engine)
+    df=pd.read_sql("SELECT * FROM prices", con=engine)
     df = df[df['counter_id'] == id]
 
     df=df[['open_mwk','high_mwk','low_mwk','close_mwk','volume','trade_date']]
@@ -120,7 +120,7 @@ def get_daily_prices(
     id=df1['counter_id'].values[0]
     
     #filter ticker using counter id
-    df=pd.read_sql("SELECT * FROM daily_prices", con=engine)
+    df=pd.read_sql("SELECT * FROM prices", con=engine)
     df = df[df['counter_id'] == id]
 
     df=df[['trade_date','open_mwk','high_mwk','low_mwk','close_mwk','volume']]
@@ -145,7 +145,7 @@ def get_recent_prices(
     id=df1['counter_id'].values[0]
     
     #filter ticker using counter id
-    df=pd.read_sql("SELECT * FROM daily_prices", con=engine)
+    df=pd.read_sql("SELECT * FROM prices", con=engine)
     df = df[df['counter_id'] == id]
 
     df=df[['trade_date','open_mwk','high_mwk','low_mwk','close_mwk','volume']]
