@@ -179,4 +179,4 @@ def get_recent_prices(
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("data_api:app", host="127.0.0.1", port=8000, reload=True)
+    uvicorn.run("endpoint_api:app", host="127.0.0.1", port=8000, reload=True)
